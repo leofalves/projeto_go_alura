@@ -13,6 +13,7 @@ var (
 	err error
 )
 
+/* Comentário Teste */
 func ConectaComBancoDeDados() {
 	endereco := os.Getenv("DB_HOST")
 	usuario := os.Getenv("DB_USER")

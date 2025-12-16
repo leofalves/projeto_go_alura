@@ -1,0 +1,27 @@
+-- Subindo o projeto
+docker compose up -d
+
+-- Consultar logs
+docker compose logs -f app
+
+-- Testar API
+localhost:8080/alunos
+
+-- Dropar os containers
+docker compose down -v
+
+--- Rodar o verificador de código Lint
+docker run --rm -itv $(pwd):/app -w /app golangci/golangci-lint golangci-lint run controllers/ database/ models/ routes/
+docker run --rm -it -v ${PWD}:/app -w /app golangci/golangci-lint golangci-lint run controllers/ database/ models/ routes/
+
+-- Rodar os testes
+docker compose exec app go test main_test.go
+
+-- Ver resultado dos testes
+echo $?
+
+
+---- Para rodar usando o make (MakeFile)
+make lint
+make test
+make ci (sobe a aplicação, roda o lint e executa os testes)
