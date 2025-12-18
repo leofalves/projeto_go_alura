@@ -32,8 +32,8 @@ jobs:
       - name: Build
         run: go build main.go
 
-      - name: Artifact
-        uses: actions/upload_artifact@v4
+      - name: Artifact_Generation
+        uses: actions/upload-artifact@v4
         with:
           name: compiled_project
           path: main
